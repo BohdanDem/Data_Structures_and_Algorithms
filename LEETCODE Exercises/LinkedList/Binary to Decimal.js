@@ -60,26 +60,18 @@ class LinkedList {
     this.length++;
   }
 
-  //   +===================================================+
-  //   |               WRITE YOUR CODE HERE                |
-  //   | Description:                                      |
-  //   | - This method converts a binary number,           |
-  //   |   represented as a linked list, to a decimal int. |
-  //   |                                                   |
-  //   | Return type: int                                  |
-  //   | - Returns the decimal equivalent of the binary    |
-  //   |   number.                                         |
-  //   |                                                   |
-  //   | Tips:                                             |
-  //   | - We use a while loop to traverse the linked list.|
-  //   | - Multiply the current sum by 2 and add the value |
-  //   |   at each node to get the decimal number.         |
-  //   +===================================================+
+  binaryToDecimal() {
+    let num = 0
+    let temp = this.head
 
+    while (temp) {
+      num = num * 2 + temp.value
+      temp = temp.next
+    }
+
+    return num
+  }
 }
-
-
-
 
 
 // ---------------
