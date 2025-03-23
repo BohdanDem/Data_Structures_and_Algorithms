@@ -31,8 +31,6 @@ function groupAnagrams(array) {
     }
   }
 
-  console.log(obj);
-
   return Object.values(obj);
 }
 
