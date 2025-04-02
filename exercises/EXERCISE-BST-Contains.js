@@ -48,6 +48,35 @@ class BST {
         return false;
     }
 
+    rContains(value, currentNode = this.root) {
+        if (currentNode === null) return false;
+
+        if (value === currentNode.value) return true;
+
+        if (value < currentNode.value) {
+            return this.rContains(value, currentNode.left)
+        } else {
+            return this.rContains(value, currentNode.right)
+        }
+    }
+
+    #deleteNode(value, currentNode) {
+        if (currentNode === null) return null;
+
+        if (value < currentNode.value) {
+            currentNode.left = this.#deleteNode(value, currentNode.left);
+        } else if (value > currentNode.value) {
+            currentNode.right = this.#deleteNode(value, currentNode.right);
+        } else {
+
+        }
+        return currentNode;
+    }
+
+    deleteNode(value) {
+        this.#deleteNode(value, this.root)
+    }
+
 }
 
 
@@ -66,9 +95,11 @@ function test() {
 
     console.log("BST Contains 27:");
     console.log(myBST.contains(27));
+    console.log(myBST.rContains(27));
 
     console.log("\nBST Contains 17:");
     console.log(myBST.contains(17));
+    console.log(myBST.rContains(17));
 }
 
 
