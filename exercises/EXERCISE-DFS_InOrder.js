@@ -86,10 +86,21 @@ class BST {
 
     DFSPostOrder() {
         let results = [];
-        function traverse(currentNode) {
+        function traverse(currentNode){
             if (currentNode.left) traverse(currentNode.left);
             if (currentNode.right) traverse(currentNode.right);
             results.push(currentNode.value);
+        }
+        traverse(this.root);
+        return results;
+    }
+
+    DFSInOrder() {
+        let results = [];
+        function traverse(currentNode) {
+            if (currentNode.left) traverse(currentNode.left);
+            results.push(currentNode.value);
+            if (currentNode.right) traverse(currentNode.right);
         }
         traverse(this.root);
         return results;
@@ -110,7 +121,7 @@ function test() {
     myTree.insert(52);
     myTree.insert(82);
 
-    console.log( myTree.DFSPostOrder() );
+    console.log( myTree.DFSInOrder() );
 }
 
 
@@ -120,7 +131,7 @@ test();
 /*
     EXPECTED OUTPUT:
     ----------------
-    [ 18, 27, 21, 52, 82, 76, 47 ]
+    [ 18, 21, 27, 47, 52, 76, 82 ]
 
 */   
 
